@@ -1,0 +1,47 @@
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+ul{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.Item-Card
+{
+    width: 180px;
+    height: 300px;
+    background-color: rgb(58, 58, 58);
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px 5px;
+    gap: 10px;
+    align-items: center;
+}
+
+.Item-Card h3
+{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.Item-Card .item-desc
+{
+    font-size: 10px;
+    overflow: hidden;
+    height: 50px;
+}
+
+.item-price
+{
+    font-size: 15px;
+    color: brown;
+    font-weight: 500;
+}

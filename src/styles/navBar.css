@@ -1,0 +1,48 @@
+nav 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    background-color: #333;
+    width: 100% ;
+    padding: 0;
+}
+
+nav div
+{
+    display: flex;
+    padding: 0 20px;
+    height: 40px;
+} 
+
+nav div img 
+{
+    height: fit-content;
+}
+
+nav ul {
+    flex-basis: 50%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+
+}
+
+nav a {
+    flex-basis: 20% !important;
+    text-decoration: none;
+    color: #fff;
+    padding: 20px;
+    transition: background-color 0.3s;
+}
+nav li 
+{
+    transition: background-color 0.2s linear;
+}
+
+nav a:hover {
+    background-color: #555;
+}
