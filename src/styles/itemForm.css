@@ -1,0 +1,44 @@
+form 
+{
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
+.custom-file-upload {
+    border: 2px dashed #999; /* Dotted border style */
+    padding: 10px 20px; /* Add padding for spacing */
+    display: inline-block; /* Display as block element */
+    cursor: pointer; 
+    width: 200px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Change cursor on hover */
+  }
+  
+  .custom-file-upload input[type="file"] {
+    display: none; /* Hide default file input */
+  }
+
+
+  .text-inputs
+  {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 0 40px;
+  }
+
+.image-input
+{
+
+}
+
+  .button-inputs
+  {
+
+  }
+  
