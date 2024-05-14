@@ -29,14 +29,14 @@ const ItemList = () => {
 
   return (
     <div className='item-page'>
-      <h2>Items List</h2>
+      <h2>Products</h2>
       <div className='item-set'>
         <ul className='Item-list'>
           {items.map((item) => (
             <li key={item.id} className='Item-Card'>
               <img src='https://img.freepik.com/free-photo/close-up-fresh-apple_144627-14640.jpg?t=st=1715448508~exp=1715452108~hmac=dea647ead96572c52da518468b7aff24ca1ddb060532cb4fb78efba53b23c940&w=740' alt={item.title} width={160}/>
               <h3>{item.title}</h3>
-              {/* <p className='item-desc'>{item.description}</p> */}
+              <p className='item-desc'>{item.description}</p>
               <p className='item-price'>{item.price}</p>
             </li>
           ))}
@@ -47,3 +47,12 @@ const ItemList = () => {
 };
 
 export default ItemList;
+
+
+
+
+
+
+
+
+
