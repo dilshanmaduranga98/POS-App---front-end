@@ -46,50 +46,61 @@ const ItemForm = ({ onAdd }) => {
   };
 
   return (
+  <>
+  <h3>Add new item</h3>
     <form onSubmit={handleSubmit}>
-        <div className = "text-inputs"> 
-            <input
-                type="text"
-                placeholder="Enter item name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                placeholder="Enter item description"
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                placeholder="Enter item price"
-                name="price"
-                value={formData.price}
-                onChange={handleChange}
-            />
+
+        <div className='inpiut-feilds'>
+            <div className = "image-input">
+                {/* Custom-styled image upload button */}
+                <label className="custom-file-upload">
+                    <input
+                    type="file"
+                    name="image"
+                    accept="image/*"
+                    onChange={handleChange}
+                    />
+                    Upload Image
+                </label>
+            </div>
+
+            <div className = "text-inputs"> 
+                <input
+                    type="text"
+                    placeholder="Enter item name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    placeholder="Enter item description"
+                    name="description"
+                    value={formData.description}
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    placeholder="Enter item price"
+                    name="price"
+                    value={formData.price}
+                    onChange={handleChange}
+                />
+
+            </div>
 
         </div>
 
-<div className = "image-input">
-      {/* Custom-styled image upload button */}
-      <label className="custom-file-upload">
-        <input
-          type="file"
-          name="image"
-          accept="image/*"
-          onChange={handleChange}
-        />
-        Upload Image
-      </label>
-      </div>
 
       <div className = "button-inputs">
       <button type="submit">Add Item</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       </div>
+
+
+
     </form>
+    </>
   );
 };
 
