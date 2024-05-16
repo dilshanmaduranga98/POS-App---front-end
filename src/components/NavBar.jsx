@@ -4,7 +4,7 @@ import '../styles/navBar.css'
 import { Link, useLocation } from 'react-router-dom';
 import { FaCartShopping } from 'react-icons/fa6';
 
-const Navbar = ({stat, func}) => {
+const Navbar = ({ func}) => {
 
     const [authticate, setAuthenticate] = useState(false);
     const location = useLocation();
@@ -16,21 +16,20 @@ const Navbar = ({stat, func}) => {
             {
                 setAuthenticate(false);
 
-            }else
+            }
+            if(currentPath != "/index" || currentPath != "/signup")
             {
                 setAuthenticate(true);
             }
 
 
-    },[]);
+    },[authticate]);
    
-
-
-
+    console.log(authticate);
 
   return (
     <>
-    {authticate && <nav>
+    {authticate && (<nav>
         <div>
             <Link to="#">
                 <img src='' alt='logo' width={100}/>
@@ -38,17 +37,20 @@ const Navbar = ({stat, func}) => {
         </div>
 
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/products">Items</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/index">Login</a></li>
+        {/* <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/services">Services</Link></li> */}
+        <li><Link to="/products">Items</Link></li>
+        <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/index" onClick={() => setAuthenticate(false)}>Login</Link></li>
         <li className='cart-icon'><FaCartShopping onClick={func}/></li>
       </ul>
-    </nav>}
+    </nav>)}
     </>
   );
 };
 
 export default Navbar;
+
+
+  

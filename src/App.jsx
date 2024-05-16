@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Login from './components/LoginComp'
-import { Route, Routes } from 'react-router'
+import { Route, Routes} from 'react-router'
 import Signup from './components/SignupComp'
 import Navbar from './components/NavBar'
 import ItemList from './pages/ItemList'
@@ -12,7 +12,7 @@ import Cart from './components/Cart';
 
 function App() {
   const [count, setCount] = useState(0);
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const [itemCount, setItemCount] = useState(0);
 
   const handleVisible = () => {
@@ -20,18 +20,18 @@ function App() {
   }
   return (
     <div className='app-main'>
-      <Navbar stat = {visible} func ={handleVisible}/>
+      <Navbar  func ={handleVisible}/>
       <Cart vis ={visible} funct = {handleVisible}/>
-      <Routes>
-        <Route path='/index' element= {<Login/>}/>
-        <Route path='/signup' element = {<Signup/>}/>
-        <Route path='/products' element = {<ItemList/>}/>
-        <Route path='/item-form' element = {<ItemForm/>}/>
-        <Route path='/admin/item' element = {<AdminProducts/>}/>
-        {/* <Route path='/admin/form' element = {<UpdateItem/>}/> */}
-      </Routes>
-      {/* <Login/> */}
-      {/* <Signup/> */}
+
+        <Routes>
+          <Route path='/index' element= {<Login/>}/>
+          <Route path='/signup' element = {<Signup/>}/>
+          <Route path='/products' element = {<ItemList/>}/>
+          <Route path='/item-form' element = {<ItemForm/>}/>
+          <Route path='/admin/item' element = {<AdminProducts/>}/>
+          {/* <Route path='/admin/form' element = {<UpdateItem/>}/> */}
+        </Routes>
+
     </div>
   )
 }

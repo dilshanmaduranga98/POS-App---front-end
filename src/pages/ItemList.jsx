@@ -98,7 +98,7 @@ const ItemList = () => {
                 <button className='quantity-btn' onClick={decreaseQty}>+</button>
               </div>
               <div className='btn-u-product'>
-                <button className='add-to-cart-btn' onClick={() => addCart(item.id, item.title, item.price, 3)}>Add To Cart</button>
+                <button className='add-to-cart-btn' onClick={() => addCart(item.id, item.title, item.price, 1)}>Add To Cart</button>
               </div>
             </li>
           ))}

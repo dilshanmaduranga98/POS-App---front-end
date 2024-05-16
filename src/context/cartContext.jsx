@@ -8,20 +8,31 @@ const cartReducer = (state, action) => {
 
     switch(action.type) {
         case 'ADD_ITEM_TO_CART':
-            let newItems = [...state.items];
-            
-            
-             newItems.push(action.payload);
-            state.items = newItems;
-            localStorage.setItem("Items", JSON.stringify(newItems));
+            console.log(action.payload);
             return {
-                items: newItems
-            };
+                ...state,
+                items: updateCart(state.items, action.payload),
+              };
         default:
             return initState;
     }
 
 }
+
+const updateCart = (cart, newItem) => {
+    const matchingItemIndex = cart.findIndex(item => item.id === newItem.id);
+  
+    if (matchingItemIndex !== -1) {
+      // Item already exists, update its quantity
+      const updatedCart = [...cart];
+      updatedCart[matchingItemIndex].qut += 1;
+      return updatedCart;
+    } else {
+      // Item doesn't exist, add it to the cart
+      return [...cart, newItem];
+    }
+  };
+
 
 const CartContextProvider = ({children}) => {
 
@@ -35,7 +46,3 @@ const CartContextProvider = ({children}) => {
 }
 
 export default CartContextProvider;
-
-
-
-

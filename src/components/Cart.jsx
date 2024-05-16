@@ -15,13 +15,13 @@ export default function Cart({vis, funct}) {
     //   }
 
      
-    let total=0;
-     items.forEach(item => {
-        total += item.total;
-      });
+    // let total=0;
+    //  items.forEach(item => {
+    //     total += item.total;
+    //   });
 
     //   items.find((it))
-    console.log(total);
+    // console.log(total);
 // var Total  = T;
 
 // var ItemsC = JSON.parse(items);
@@ -34,23 +34,32 @@ export default function Cart({vis, funct}) {
       <h2>Cart</h2>
       
       
-      <div className='cart-items-continer'>
-        <ul>
-            {items.map((item) => (   
-            <li key={item.id}>
-                <div>
-                    <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTflvzRI3JwsFNeDJyskwo9rMNmwcqObAdb39VOFStALg&s' width={50}/>
-                    <h5>{item.title}</h5>
-                    <h6>${item.price}.00</h6>
-                    <p>{item.qut}</p>
-                    <button><FaTrashCan/></button>
-                </div>
-            </li>
-            ))}
+        <div className='cart-items-continer'>
+            <ul>
+                {items.map((item) => (   
+                <li key={item.id}>
+                    <div>
+                        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTflvzRI3JwsFNeDJyskwo9rMNmwcqObAdb39VOFStALg&s' width={40}/>
+                        <h5>{item.title}</h5>
+                        <h6>${item.price}.00</h6>
+                        <p>{item.qut}</p>
+                        <button><FaTrashCan/></button>
+                    </div>
+                </li>
+                ))}
 
-            <p className='total-cart'>TOTAL : ${total}.00</p>
-        </ul>
-      </div>
+                
+                
+            </ul>
+           
+        </div>
+
+        <div className='total-checkout'>
+            <p className='total-cart'>TOTAL : $344.00</p>
+            <button > Checkout</button>
+        </div>
+
+
     </div>)}
     </>
   )
