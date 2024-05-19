@@ -1,30 +1,52 @@
 import React, { useEffect, useState, useContext } from 'react'
 import '../styles/cart.css'
 import { CartContext } from '../context/cartContext';
-// import {circle-xmark} from 'react-icons/fa'
 import { FaTrashCan } from 'react-icons/fa6';
 import { FaXmark } from 'react-icons/fa6';
+import { useNavigate } from 'react-router';
+
 
 export default function Cart({vis, funct}) {
 
-    const {cart: {items}} = useContext(CartContext);
-    // const [visible, setVisible] = useState(true);
+    const {cart: {items}, dispatch} = useContext(CartContext);
 
-    // const handleVisible = () => {
-    //     setVisible(!visible);
-    //   }
+    function calcTotal() {
+        let total = 0;
+
+        items.forEach(item => {
+            total += (item.price * item.qut);
+        })
+        console.log(total)
+        return total;
+    }
+
+
+  
+
+
+    function handleDelete(itemId) {
+        console.log('clicked')
+        dispatch({type: "DELETE_ITEM", payload: itemId});
+    }
+
 
      
-    // let total=0;
-    //  items.forEach(item => {
-    //     total += item.total;
-    //   });
+    let total=0;
+     items.forEach(item => {
+        total += item.total;
+      });
 
-    //   items.find((it))
-    // console.log(total);
-// var Total  = T;
+  
 
-// var ItemsC = JSON.parse(items);
+      const navigate = useNavigate();
+
+// Redirect to checkout page
+const handleCheckout = () => {
+    navigate('/checkout', { state: items });
+    console.log(items);
+};
+
+
   return (
     <>
     {vis && (<div className='cart-main'>
@@ -43,7 +65,7 @@ export default function Cart({vis, funct}) {
                         <h5>{item.title}</h5>
                         <h6>${item.price}.00</h6>
                         <p>{item.qut}</p>
-                        <button><FaTrashCan/></button>
+                        <button onClick={() => handleDelete(item.id)}><FaTrashCan/></button>
                     </div>
                 </li>
                 ))}
@@ -55,8 +77,8 @@ export default function Cart({vis, funct}) {
         </div>
 
         <div className='total-checkout'>
-            <p className='total-cart'>TOTAL : $344.00</p>
-            <button > Checkout</button>
+            <p className='total-cart'>TOTAL : ${calcTotal()}.00</p>
+            <button onClick={handleCheckout}> Checkout</button>
         </div>
 
 

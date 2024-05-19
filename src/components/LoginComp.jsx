@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/loginPage.css'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -41,7 +42,7 @@ const Login = () => {
       <h1>Login</h1>
       <p>Hey welcome back, signin here.</p>
      <div> <input
-        type="text"
+        type="email"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
@@ -57,6 +58,8 @@ const Login = () => {
       </div>
 
       <div><button onClick={handleLogin}>Login</button></div>
+      <p>If you don't have an account, you can <Link to="/signup">register</Link> in here</p>
+    
     </div>
   );
 };

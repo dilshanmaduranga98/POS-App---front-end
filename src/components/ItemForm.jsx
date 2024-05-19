@@ -8,16 +8,28 @@ const ItemForm = ({ onAdd }) => {
     name: '',
     description: '',
     price: '',
+    stock:'',
     image: null
   });
   const [error, setError] = useState(null);
+  const [imageSrc, setImageSrc] = useState(null);
 
   const handleChange = (e) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
     if (e.target.name === 'image') {
       setFormData({
         ...formData,
         image: e.target.files[0]
+        
       });
+
+      reader.onload = () => {
+        setImageSrc(reader.result);
+    };
+
+    reader.readAsDataURL(file);
     } else {
       const { name, value } = e.target;
       setFormData({
@@ -37,6 +49,7 @@ const ItemForm = ({ onAdd }) => {
         name: '',
         description: '',
         price: '',
+        stock:'',
         image: null
       });
       setError(null);
@@ -53,7 +66,7 @@ const ItemForm = ({ onAdd }) => {
         <div className='inpiut-feilds'>
             <div className = "image-input">
                 {/* Custom-styled image upload button */}
-                <label className="custom-file-upload">
+                {imageSrc ?imageSrc && <img src={imageSrc} alt="Uploaded" width={150}/> : (<label className="custom-file-upload">
                     <input
                     type="file"
                     name="image"
@@ -61,7 +74,8 @@ const ItemForm = ({ onAdd }) => {
                     onChange={handleChange}
                     />
                     Upload Image
-                </label>
+                </label>)}
+                
             </div>
 
             <div className = "text-inputs"> 
@@ -84,6 +98,14 @@ const ItemForm = ({ onAdd }) => {
                     placeholder="Enter item price"
                     name="price"
                     value={formData.price}
+                    onChange={handleChange}
+                />
+
+                <input
+                    type="text"
+                    placeholder="Enter item stock"
+                    name="stock"
+                    value={formData.stock}
                     onChange={handleChange}
                 />
 

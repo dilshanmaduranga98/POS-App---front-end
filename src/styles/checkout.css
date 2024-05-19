@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.hedding-billing
+{
+   padding-top: 20px;
+}
+
+.subhedding-billing
+{
+    margin: 0;
+}
+.checkout-main
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin-top: 20px;
+    border-top: 1px solid #666666;
+    padding-top: 20px;
+}
+
+.items
+{
+    flex-basis: 60%;
+    overflow-y: scroll;
+    height: 70vh;
+}
+.items li
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.items li:nth-child(even)
+{
+    background-color: #555555  ;
+}
+.items li div
+{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px;
+}
+.items li div img 
+{
+    flex-basis: 15%;
+}
+.items li div h5 
+{
+    flex-basis: 40%;
+}
+
+.items li div h6, .items li div p 
+{
+    flex-basis: 20%;
+}
+
+.billing-data
+{
+    flex-basis: 40%;
+    border-left: 1px solid #8d8d8d;
+    height: 70vh;
+}
+
+.billing-data .form-billing 
+{
+    display: flex !important;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: 0;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.inputs-billing
+{
+    display: flex;
+    align-items: center;
+}
+
+.inputs-billing input 
+{
+    height: 13px;
+}
+.inputs-billing p 
+{
+    width: 200px;
+    max-width: 220px;
+}
+
+.billing-btn 
+{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.billing-btn button 
+{
+    margin-right: 30px;
+}

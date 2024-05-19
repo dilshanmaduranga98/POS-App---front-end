@@ -41,6 +41,7 @@ input
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 25%;
 }
 
 button 
@@ -48,4 +49,9 @@ button
     margin-top: 30px;
     width: 150px;
     padding: 5px 10px;
+}
+
+.goto-signin
+{
+    margin-top: 20px;
 }

@@ -13,11 +13,19 @@ const cartReducer = (state, action) => {
                 ...state,
                 items: updateCart(state.items, action.payload),
               };
+        case 'DELETE_ITEM':
+            console.log("called")
+            return {
+                ...state,
+                items: removeItemFromCart(state.items, action.payload),
+            };
         default:
             return initState;
     }
 
 }
+
+
 
 const updateCart = (cart, newItem) => {
     const matchingItemIndex = cart.findIndex(item => item.id === newItem.id);
@@ -31,7 +39,11 @@ const updateCart = (cart, newItem) => {
       // Item doesn't exist, add it to the cart
       return [...cart, newItem];
     }
-  };
+};
+
+const removeItemFromCart = (cart, itemId) => {
+    return cart.filter(item => item.id !== itemId);
+};
 
 
 const CartContextProvider = ({children}) => {

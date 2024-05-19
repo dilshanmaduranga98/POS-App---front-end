@@ -15,6 +15,7 @@ const ItemList = () => {
 
   const {cart, dispatch} = useContext(CartContext);
 
+
   useEffect(() => {
     // Replace with your actual API endpoint
     const apiUrl = 'https://api.escuelajs.co/api/v1/products';
@@ -56,10 +57,8 @@ const ItemList = () => {
   }
 
   const addCart = (ID, title,price, quantity) => {
-    var itemTotla = price * quantity;
-    
-    var total = total + itemTotla;
-    const newCartItem = {id:ID , title: title, price: price, qut: quantity, total: itemTotla};
+
+    const newCartItem = {id:ID , title: title, price: price, qut: quantity};
 
     dispatch({type: "ADD_ITEM_TO_CART", payload: newCartItem});
 
@@ -91,11 +90,6 @@ const ItemList = () => {
               
               <div className='price-u-product'>
                 <p className='item-price'>${item.price}.00</p>
-              </div>
-              <div className='quantity-control'>
-                <button className='quantity-btn' onClick={() => setQuantity(quantity+1)}>-</button>
-                <span>{quantity}</span>
-                <button className='quantity-btn' onClick={decreaseQty}>+</button>
               </div>
               <div className='btn-u-product'>
                 <button className='add-to-cart-btn' onClick={() => addCart(item.id, item.title, item.price, 1)}>Add To Cart</button>
